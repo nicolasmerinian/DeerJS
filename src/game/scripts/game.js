@@ -1,12 +1,12 @@
 var game = Deer.Game('container', 349, 600);
 
-/*game.add('stage', {
+game.add('stage', {
 	name: 'level1',
 	background: {
-		url: 'graphics/backgrounds/myBG.png',
-		scrolling: true,
-		speed: { x: 0, y: 5 }
-	},
+		url: 'graphics/backgrounds/myBG.png'
+		// scrolling: true,
+		// speed: { x: 0, y: 5 }
+	}/*,
 	music: 'musics/myMusic.mp3',
 	enemies: {
 		enemies: [
@@ -73,9 +73,9 @@ var game = Deer.Game('container', 349, 600);
 		waves: [ [ 0, 0, 0, 0, 0 ] ],
 		timeBetweenWave: 2000,
 		timeBetweenEnemy: 1000
-	}
+	}*/
 });
-
+/*
 game.add('ship', {
 	name: 'myShip',
 	url: 'graphics/ships/ship.png',
