@@ -1,0 +1,149 @@
+// Just for shooter games
+/*
+Features :
+  - Hero ship
+    - move
+    - shoot
+  - multiple enemies
+    - move
+    - shoot
+  - scrolling background
+  - powerups
+  - HUD
+  - menus
+    - title
+    - level selection
+    - settings
+  - musics and sounds
+  - boss
+- multi device -> PC, Phone, Tablet
+- cross browser -> IE ? Chrome, FF, Opera, Safari, Edge
+*/
+
+// API goal example
+
+var game = deer.create('canvasId');
+game.add('stage', {
+	background: {
+		url: 'game/graphics/backgrounds/myBG.png',
+		scrolling: true,
+		speed: { x: 0, y: 5 }
+	},
+	music: 'game/musics/myMusic.mp3',
+	enemies: {
+		enemies: [
+			{
+				name: 'enemy1',
+				url: 'game/graphics/enemies/enemy1.png',
+				power: 1,
+				weapon: null,
+				life: 2,
+				spawnAt: {
+					x: deer.Position.Random,
+					y: deer.Position.Up.Outside
+				},
+				path: deer.Path.Bottom.Straight,
+				animation: {
+					destroy: {
+						url: 'game/graphics/animations/littleExplosion.png',
+						frames: 15,
+						time: 300,
+						sound: 'game/sounds/boum.mp3'
+					}
+				},
+			},
+			{
+				name: 'boss1',
+				url: 'game/graphics/enemies/boss1.png',
+				type: deer.Enemy.Boss, // necessary?
+				power: 1,
+				weapon: {
+					name: 'laser',
+					sprite: 'game/graphics/bullets/laser2.png',
+					power: 2,
+					multihit: false,
+					path: deer.Path.Bottom.Straight,
+					sound: 'game/sounds/fire.mp3',
+					animation: {
+						destroy: {
+							url: 'game/graphics/animations/littleExplosion.png',
+							frames: 15,
+							time: 2700,
+							sound: 'game/sounds/boum.mp3'
+						}
+					},
+					transform: function() {
+						this.width *= 1.05;
+					},
+				},
+				life: 200,
+				spawnAt: {
+					x: deer.Position.Middle,
+					y: 50
+				},
+				path: deer.Path.Bottom.Straight,
+				animation: {
+					destroy: {
+						url: 'game/graphics/animations/littleExplosion.png',
+						frames: 15,
+						time: 300,
+						sound: 'game/sounds/boum.mp3'
+					}
+				},
+			}
+		],
+		waves: [ [ 0, 0, 0, 0, 0 ] ],
+		timeBetweenWave: 2000,
+		timeBetweenEnemy: 1000
+	}
+});
+game.add('ship', {
+	name: 'myShip',
+	url: 'game/graphics/ships/ship.png',
+	input: deer.Input.Keyboard, // mouse or keyboard
+	speed: 6, // if input = keyboard
+	life: 5,
+	rate: 3,
+	weapon: {
+		name: 'laser',
+		sprite: 'game/graphics/bullets/laser1.png',
+		power: 3,
+		multihit: false,
+		path: deer.Path.Up.Straight,
+		price: 20,
+		sound: 'game/sounds/fire.mp3',
+		animation: {
+			destroy: {
+				url: 'game/graphics/animations/littleExplosion.png',
+				frames: 15,
+				time: 300,
+				sound: 'game/sounds/boum.mp3'
+			}
+		},
+		transform: function() {
+			this.width *= 1.05;
+		},
+	}
+});
+game.add('titlemenu', {
+	background: {
+		url: 'backgrounds/titleMenu.png'
+	},
+	music: 'musics.menu.mp3',
+	choices: {
+		url: ['pictures/newGame.png', 'pictures/newGame.png']
+	}
+});
+game.run();
+
+// Classes
+
+/*
+	Animation 			= créer et mettre à jour les animations
+	Enemy 				= créer et mettre à jour les ennemis
+	Game 				= créer le jeu
+	InputManager 		= créer, mettre à jour les événements souris et clavier
+	Ship 				= créer et mettre à jour le vaisseau du héros
+	SoundManager 		= créer et jouer les musiques et les sons
+	Stage 				= créer et mettre à jour le stage
+*/
