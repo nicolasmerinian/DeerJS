@@ -1,6 +1,7 @@
-var game = deer.create('container');
+debugger;
+var game = Deer.create('container', 349, 600);
 
-game.add('stage', {
+/*game.add('stage', {
 	name: 'level1',
 	background: {
 		url: 'graphics/backgrounds/myBG.png',
@@ -117,4 +118,4 @@ game.add('titlemenu', {
 	}
 });
 
-game.run('level1');
+game.run('level1');*/
