@@ -1,5 +1,5 @@
 debugger;
-var game = Deer.create('container', 349, 600);
+var game = Deer.Game('container', 349, 600);
 
 /*game.add('stage', {
 	name: 'level1',
