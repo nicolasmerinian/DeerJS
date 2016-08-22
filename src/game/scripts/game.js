@@ -1,4 +1,3 @@
-debugger;
 var game = Deer.Game('container', 349, 600);
 
 /*game.add('stage', {
