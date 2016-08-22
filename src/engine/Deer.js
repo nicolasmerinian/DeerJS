@@ -1,7 +1,8 @@
 'use strict';
 
-var game = {
+// Namespace
+var Deer = {
 
 	version: '0.0.1' // '-'
-	
+
 };

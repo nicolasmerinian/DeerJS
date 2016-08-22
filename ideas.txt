@@ -22,7 +22,7 @@ Features :
 
 // API goal example
 
-var game = deer.create('canvasId');
+var game = deer.create('container');
 game.add('stage', {
 	background: {
 		url: 'game/graphics/backgrounds/myBG.png',
@@ -145,5 +145,6 @@ game.run();
 	InputManager 		= créer, mettre à jour les événements souris et clavier
 	Ship 				= créer et mettre à jour le vaisseau du héros
 	SoundManager 		= créer et jouer les musiques et les sons
+	Sprite 				= créer un sprite pour les classes enemy, ship, etc
 	Stage 				= créer et mettre à jour le stage
 */
